@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Mo's algorithm visualizer</title>
+
+        <script src="canvas.js"></script>
+        <script src="query_generator.js"></script>
+        <script src="main.js"></script>
+
+        <!-- loading katex -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+
+        <script src="katex_loader.js"></script>
+
+    </head>
+
+    <body>
+        <h1>Mo's algorithm visualizer</h1>
+        <canvas id="main_canvas" style="border: black 1px solid"></canvas>
+        <div>
+            <div>
+                <input type="number" min="10", max="500" value="100" id="query_max_y"></input>
+                <p>y軸最大値</p>
+            </div>
+            <div>
+                <input type="number" min="10", max="500" value="100" id="query_max_x"></input>
+                <p>x軸最大値</p>
+            </div>
+            <input type="number" min="10", max="500" value="100" id="query_amount"></input>
+            <button id="query_generate_button">クエリ点をランダム生成</button>
+        </div>
+        <textarea id="query_output"></textarea>
+
+        <div>
+            <h2>How to use</h2>
+            <p>textareaに条件を満たすようにデータを入力しボタンを押すことで、それらに対するMo's algorithmの巡回順をcanvasに示します。条件を満たすデータをランダム生成する機能もあります。これを用いる場合、二軸の最大値を指定して「クエリ点をランダム生成」ボタンを押してください。データは以下のフォーマットに従う必要があります。</p>
+
+            <pre>$Q$
+$y _ 1$ $x _ 1$
+$y _ 2$ $x _ 2$
+$y _ 3$ $x _ 3$
+$\dots$
+$y _ Q$ $x _ Q$
+            </pre>
+
+
+            <h2>Mo's algorithmとは</h2>
+        </div>
+    </body>
+</html>
