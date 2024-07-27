@@ -6,8 +6,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Mo's algorithm visualizer</title>
 
+        <!-- favicon setting from: https://zenn.dev/pacchiy/articles/e4dcd7bd29d387 -->
+        <link rel="icon" sizes="48x48" href="favicon.png" />
+        <link rel="apple-touch-icon" href="favicon.png">
+
         <script src="canvas.js"></script>
+        <script src="drawer.js"></script>
         <script src="query_generator.js"></script>
+        <script src="mo.js"></script>
+        <script src="input_validator.js"></script>
         <script src="main.js"></script>
 
         <!-- loading katex -->
@@ -23,33 +30,65 @@
         <h1>Mo's algorithm visualizer</h1>
         <canvas id="main_canvas" style="border: black 1px solid"></canvas>
         <div>
-            <div>
-                <input type="number" min="10", max="500" value="100" id="query_max_y"></input>
-                <p>y軸最大値</p>
-            </div>
-            <div>
-                <input type="number" min="10", max="500" value="100" id="query_max_x"></input>
-                <p>x軸最大値</p>
-            </div>
-            <input type="number" min="10", max="500" value="100" id="query_amount"></input>
-            <button id="query_generate_button">クエリ点をランダム生成</button>
+            <h2>Result</h2>
+            <ul>
+                <li>総クエリ数: <span id="result_query_count"></span></li>
+                <li>巡回方法: <span id="result_method"></span></li>
+                <li>総移動距離: <span id="result_distance_sum"></span></li>
+            </ul>
         </div>
-        <textarea id="query_output"></textarea>
 
-        <div>
-            <h2>How to use</h2>
-            <p>textareaに条件を満たすようにデータを入力しボタンを押すことで、それらに対するMo's algorithmの巡回順をcanvasに示します。条件を満たすデータをランダム生成する機能もあります。これを用いる場合、二軸の最大値を指定して「クエリ点をランダム生成」ボタンを押してください。データは以下のフォーマットに従う必要があります。</p>
+        <div style="display: flex;">
+            <div style="flex: 40%;">
+                <h2>クエリ生成機</h2>
+                <div>
+                    <label for="query_max_y">y軸最大値</label>
+                    <input type="number" min="0", max="10000" value="500" id="query_max_y"></input>
+                </div>
+                <div>
+                    <label for="query_max_x">x軸最大値</label>
+                    <input type="number" min="0", max="10000" value="500" id="query_max_x"></input>
+                </div>
+                <div>
+                    <label for="query_amount">クエリ数</label>
+                    <input type="number" min="0", max="10000" value="100" id="query_amount"></input>
+                </div>
+                <div>
+                    <button id="query_generate_button">クエリ点をランダム生成</button>
+                </div>
+            </div>
+            <div style="flex: 40%;">
+                <h2>クエリ入力</h2>
+                <textarea id="query_input" style="height: 200pt; width: 20%"></textarea>
+                <div>
+                    <select id="sort_method">
+                        <option>巡回順を選択してください</option>
+                        <option>ソートなし</option>
+                        <option>Mo (original)</option>
+                        <option>Mo (hilbert curve)</option>
+                    </select>
+                </div>
+                <div>
+                    <button id="input_delete_button">クエリ入力を消去</button>
+                    <button id="run_button">Run</button>
+                </div>
+            </div>
+        </div>
 
-            <pre>$Q$
+        <hr />
+
+        <h2>How to use</h2>
+        <p>textareaに条件を満たすようにデータを入力しボタンを押すことで、それらに対するMo's algorithmの巡回順をcanvasに示します。条件を満たすデータをランダム生成する機能もあります。これを用いる場合、二軸の最大値を指定して「クエリ点をランダム生成」ボタンを押してください。データは以下のフォーマットに従う必要があります。</p>
+
+        <pre>$Q$
 $y _ 1$ $x _ 1$
 $y _ 2$ $x _ 2$
 $y _ 3$ $x _ 3$
 $\dots$
 $y _ Q$ $x _ Q$
-            </pre>
+        </pre>
 
 
-            <h2>Mo's algorithmとは</h2>
-        </div>
+        <h2>Mo's algorithmとは</h2>
     </body>
 </html>

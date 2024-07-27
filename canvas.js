@@ -2,7 +2,7 @@ class Canvas {
     #canvas_element;
     #context;
 
-    #ratio_to_window_width = 0.8;
+    #ratio_to_window_width = 0.6;
     #aspect_ratio = 9 / 16;
 
     constructor (element) {
@@ -25,8 +25,13 @@ class Canvas {
     get_width () {
         return this.#canvas_element.width;
     }
+
     get_height () {
         return this.#canvas_element.height;
+    }
+
+    get_ctx () {
+        return this.#context;
     }
 }
 
