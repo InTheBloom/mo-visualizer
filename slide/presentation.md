@@ -108,7 +108,57 @@ Mo's algorithmはTSPに対するそこそこの解を見つけるアルゴリズ
 
 ---
 
-お待たせしました。
+長い長い前置きが終わりました...
 作ったものの紹介をします。
 
 ---
+
+## Mo's algorithm visualizer
+
+Mo's algorithmにより与えられる点の巡回順を可視化します。
+<div style="display: flex;">
+<div>
+<h3>機能</h3>
+<ul>
+<li>クエリの自動生成。</li>
+<li>総移動距離を計算。</li>
+<li>hilbert orderのmoの可視化。</li>
+<li>Mo's algorithmなしの可視化。</li>
+</ul>
+</div>
+<div style="padding: 12pt;"><img src="./img/visualizer.png" style="height: 300pt;"></div>
+</div>
+
+---
+## デモ
+
+<div style="display: flex;">
+<div style="padding: 12pt;">
+<img src="./img/unsorted.png" style="height: 220pt;">
+<p>ソートなし</p>
+<p>移動距離: 69081</p>
+</div>
+<div style="padding: 12pt;">
+<img src="./img/mo_original.png" style="height: 220pt;">
+<p>Mo (original)</p>
+<p>移動距離: 8978</p>
+</div>
+<div style="padding: 12pt;">
+<img src="./img/mo_hilbert.png" style="height: 220pt;">
+<p>Mo (hilbert curve)</p>
+<p>移動距離: 8795</p>
+</div>
+</div>
+
+---
+## github pagesで公開中！
+
+是非遊んでみてください！
+
+- repository: [https://github.com/InTheBloom/mo-visualizer](https://github.com/InTheBloom/mo-visualizer)
+- visualizer: [https://inthebloom.github.io/mo-visualizer/](https://inthebloom.github.io/mo-visualizer/)
+- slide: [https://inthebloom.github.io/mo-visualizer/slide/presentation.html](https://inthebloom.github.io/mo-visualizer/slide/presentation.html)
+
+---
+<p style="font-size: 3em;">ご清聴ありがとうございました。&#x1f647;&#x1f647;&#x1f647;</p>
+
