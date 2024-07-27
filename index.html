@@ -90,5 +90,19 @@ $y _ Q$ $x _ Q$
 
 
         <h2>Mo's algorithmとは</h2>
+        <p>次の条件を満たす区間クエリに適用できるアルゴリズム。</p>
+        <ul>
+            <li>クエリにより列が変化しない。</li>
+            <li>現在見ている区間の伸縮がある程度高速に行える。</li>
+            <li>「現在見ている区間」の情報からクエリに対する回答をある程度簡単に求める方法がある。</li>
+        </ul>
+        <p>区間クエリは$[l, r]$を二次元平面上の$(l, r)$に対応させることより、「ある区間から別の区間に変化させること」を「ある点からある点へとマンハッタン距離動くこと」と読み替えることができる。読み替えた問題における移動回数の和は区間の伸縮回数に対応するため、この値を小さくできればよい。この問題に対する厳密解は巡回セールスマン問題を解くこととほぼ等価になる。</p>
+        <p>Mo's algorithmは移動距離をある程度小さな値に抑えるクエリ巡回順を与える。巡回セールスマン問題が$\mathcal{O}(N 2^N)$であるのに対して、Mo's algorithmは$\mathcal{O}(N \log N)$程度で行うことができる。</p>
+        <p>ここではアルゴリズムのメインアイディアを紹介するにとどめる。詳細なアルゴリズムは以下を参照するとよい。</p>
+        <ul>
+            <li><a href="https://ei1333.hateblo.jp/entry/2017/09/11/211011">Mo's algorithm - ei1333の日記</a></li>
+            <li><a href="https://nyaannyaan.github.io/library/misc/mo.hpp.html">Mo's algorithm - Nyaan's Library</a></li>
+            <li><a href="https://codeforces.com/blog/entry/61203">An alternative sorting order for Mo's algorithm - Codeforces</a></li>
+        </ul>
     </body>
 </html>
